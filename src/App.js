@@ -1,11 +1,22 @@
 import logo from './logo.svg';
 import './App.css';
+import HeaderComponent from './components/HeaderComponent';
+import BannerComponent from './components/Banner';
+import MenuComponent from './components/Menu';
+import FormComponent from './components/Form';
 
 function App() {
   return (
-    <div className="App">
-     
-    </div>
+    <>
+
+    <HeaderComponent></HeaderComponent>
+    
+    <BannerComponent></BannerComponent>
+
+    <MenuComponent></MenuComponent>
+
+    <FormComponent></FormComponent>
+    </>
   );
 }
 
