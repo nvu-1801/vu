@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import HeaderComponent from './components/HeaderComponent';
 import BannerComponent from './components/Banner';
-import MenuComponent from './components/Menu';
+import MenuComponent from './components/MenuCompontent';
 import FormComponent from './components/Form';
 
 function App() {
