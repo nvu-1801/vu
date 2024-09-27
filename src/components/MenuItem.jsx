@@ -1,4 +1,13 @@
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+
 const MenuItem = ({ items = [] }) => {
+  const navigate = useNavigate();
+
+  const handleBuyClick = (item) => {
+    navigate('/purchase', { state: { item } });
+  };
+
   return (
     <>
       {items.map((item) => (
@@ -11,10 +20,12 @@ const MenuItem = ({ items = [] }) => {
             <div className="card-body text-center">
               <h5 className="card-title">{item.title}</h5>
               <p className="card-text">
-                {item.originalPrice && <del>${item.originalPrice}</del>} $
-                {item.price}
+                {item.originalPrice && <del>${item.originalPrice}</del>} ${item.price}
               </p>
-              <button className="btn btn-warning full-width bg-black text-white">
+              <button
+                className="btn-hover "
+                onClick={() => handleBuyClick(item)}
+              >
                 Buy
               </button>
             </div>
