@@ -9,7 +9,7 @@ const MenuItem = ({ items = [] }) => {
   };
 
   return (
-    <>
+    <div className="row g-4 justify-content-center">
       {items.map((item) => (
         <div className="col-md-3" key={item.id}>
           <div className="card h-100">
@@ -23,7 +23,7 @@ const MenuItem = ({ items = [] }) => {
                 {item.originalPrice && <del>${item.originalPrice}</del>} ${item.price}
               </p>
               <button
-                className="btn-hover "
+                className=" btn-hover"
                 onClick={() => handleBuyClick(item)}
               >
                 Buy
@@ -32,7 +32,7 @@ const MenuItem = ({ items = [] }) => {
           </div>
         </div>
       ))}
-    </>
+    </div>
   );
 };
 
