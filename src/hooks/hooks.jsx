@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { data } from '../components/data'; // Import dữ liệu cục bộ từ file data.js
+import { data } from '../components/data'; // Import dữ liệu từ file data.js
 
 // Custom Hook to fetch menu items data
 function useMyHook() {
@@ -8,12 +8,14 @@ function useMyHook() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // Giả lập thời gian trễ của việc lấy dữ liệu, giống như gọi API
+        // Giả lập thời gian trễ của việc lấy dữ liệu
         setTimeout(() => {
           setMenuItems(data); // Sử dụng dữ liệu từ file data.js
-        }, 500); // Giả lập độ trễ 0.5s
-
-        // const response = await fetch('https://api.example.com/menu-items'); // Replace with your API endpoint
+          console.log('Loaded data:', data); // Thêm dòng này để kiểm tra dữ liệu
+        }, 500); // Độ trễ 0.5s để mô phỏng việc gọi API
+        
+        // Nếu bạn muốn sử dụng API thực, có thể thay thế như dưới đây:
+        // const response = await fetch('https://api.example.com/menu-items'); 
         // const result = await response.json();
         // setMenuItems(result);
       } catch (error) {
@@ -22,7 +24,7 @@ function useMyHook() {
     };
 
     fetchData();
-  }, []); // Only runs once when the component mounts
+  }, []); // Chỉ chạy một lần khi component mount
 
   return menuItems;
 }

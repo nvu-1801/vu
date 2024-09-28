@@ -56,9 +56,7 @@ h1, h2, h3, h4, h5, h6 {
   text-transform: uppercase; /* Viết hoa toàn bộ */
   letter-spacing: 1px; /* Tăng khoảng cách giữa các ký tự */
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); /* Thêm bóng chữ */
-
 }
-
 
 .card img {
   height: 200px;
@@ -99,4 +97,62 @@ h1, h2, h3, h4, h5, h6 {
   transform: scale(1.05); /* Increase card size */
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Add shadow effect */
   transition: all 0.3s ease-in-out; /* Smooth transition */
+}
+
+/* Table for Purchases Section (Cart) */
+.purchases-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.purchases-table th,
+.purchases-table td {
+  padding: 15px;
+  text-align: center;
+  border: 1px solid #495057;
+  background-color: #495057;
+  color: white;
+}
+
+.purchases-table th {
+  background-color: #212529;
+}
+
+.purchases-table td {
+  background-color: #343a40;
+}
+
+.purchases-table tbody tr:hover {
+  background-color: #3a3f44;
+}
+
+.quantity-controls button {
+  background-color: #f8d210;
+  border: none;
+  color: #343a40;
+  font-size: 18px;
+  padding: 5px 10px;
+  margin: 0 5px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.quantity-controls button:hover {
+  background-color: #f39c12;
+}
+
+/* Cart Popup Styles */
+.cart-popup {
+  position: fixed;
+  right: 20px;
+  top: 80px;
+  width: 300px;
+  max-height: 400px;
+  overflow-y: auto;
+  background-color: #343a40;
+  color: white;
+  border: 1px solid #f8d210;
+  padding: 20px;
+  z-index: 1000; /* Đảm bảo cart hiển thị trên các phần tử khác */
 }

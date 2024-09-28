@@ -1,32 +1,45 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { PurchaseContext } from "./PurchaseContext";
 
 const PurchasePage = () => {
-  const { state } = useLocation();
-  const { item } = state || {};
-  const [quantity, setQuantity] = useState(1);
-  const navigate = useNavigate();
+  const { state } = useLocation(); // Lấy item từ state được truyền qua navigate
+  const { item } = state || {}; // Kiểm tra nếu item tồn tại
+  const [quantity, setQuantity] = useState(1); // Khởi tạo state để quản lý số lượng
+  const { setPurchasedItems } = useContext(PurchaseContext); // Lấy hàm setPurchasedItems từ context
+  const navigate = useNavigate(); // Hook để điều hướng
 
+  // Nếu không có item trong state, hiển thị thông báo lỗi
   if (!item) {
     return <div>Product not found!</div>;
   }
 
+  // Xử lý thay đổi số lượng
   const handleQuantityChange = (e) => {
-    setQuantity(e.target.value);
+    setQuantity(parseInt(e.target.value));
   };
 
+  // Xử lý khi người dùng xác nhận mua hàng
   const handlePurchase = (e) => {
     e.preventDefault();
+    const purchasedItem = {
+      title: item.title,
+      quantity,
+      totalPrice: (item.price * quantity).toFixed(2),
+    };
+    // Cập nhật danh sách các sản phẩm đã mua trong context
+    setPurchasedItems((prevItems) => [...prevItems, purchasedItem]);
     alert(
       `You have purchased ${quantity} of ${item.title} for $${(
         item.price * quantity
       ).toFixed(2)}`
     );
-    navigate("/"); // Redirect back to home after purchase
+    navigate("/"); // Điều hướng trở lại trang chính sau khi mua
   };
 
+  // Điều hướng trở lại trang menu
   const handleBackClick = () => {
-    navigate("/"); // Navigate back to the PizzaHouse page
+    navigate("/"); // Điều hướng trở lại trang PizzaHouse
   };
 
   return (
@@ -66,7 +79,7 @@ const PurchasePage = () => {
             </button>
           </form>
           {/* Back Button */}
-          <button onClick={handleBackClick} className="btn-hover  mt-3">
+          <button onClick={handleBackClick} className="btn-hover mt-3">
             Back to Pizza Menu
           </button>
         </div>

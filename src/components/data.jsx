@@ -13,7 +13,6 @@ export const data = [
     price: 10.99,
     originalPrice: null,
     image: './images/pizza2.jpg',
-    badge: 'Sale',
   },
   {
     id: 3,
