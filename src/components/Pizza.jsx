@@ -4,6 +4,9 @@ import MenuItem from "./MenuItem"; // Import MenuItem từ file khác
 import { Carousel, Image, Container, Row, Form, Col, Button, Modal } from "react-bootstrap"; // Import Modal
 import { PurchaseContext } from "./PurchaseContext"; // Import PurchaseContext
 import useMyHook from "../hooks/hooks"; // Sử dụng custom hook
+import pizza1 from "../Images/pizza1.jpg";
+import pizza2 from "../Images/pizza2.jpg";
+import pizza3 from "../Images/pizza3.jpg";
 
 const PizzaHouse = () => {
   const menuItems = useMyHook(); // Lấy dữ liệu thực đơn bằng custom hook
@@ -102,21 +105,21 @@ const PizzaHouse = () => {
       {/* Banner */}
       <Carousel>
         <Carousel.Item>
-          <Image src="./images/pizza5.jpg" alt="First slide" />
+          <Image src={pizza1} alt="First slide" />
           <Carousel.Caption>
             <h3>Neapolitan Pizza</h3>
             <p>If you're looking for traditional Italian pizza, the Neapolitan is the best option!</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
-          <Image src="./images/pizza4.jpg" alt="Second slide" />
+          <Image src={pizza2} alt="Second slide" />
           <Carousel.Caption>
             <h3>Cheese Pizza</h3>
             <p>Cheese lovers, this is for you!</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
-          <Image src="./images/pizza3.jpg" alt="Third slide" />
+        <Image src={pizza3} alt="Third slide" />
           <Carousel.Caption>
             <h3>Pepperoni Pizza</h3>
             <p>For those who love a bit of spice!</p>
